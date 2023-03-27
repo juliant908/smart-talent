@@ -1,0 +1,96 @@
+<div class="bg-p m-4 rounded p-4 d-flex flex-col mb-2umn justify-content-center align-items-center">
+  <h2 class="m-4">Crear hotel</h2>
+  <form class="w-100" [formGroup]="hotelForm" (ngSubmit)="onSubmit()">
+    <div class="hotel-inputs">
+      <h2>Información del hotel</h2>
+      <div class="col mb-2">
+        <label for="name">Nombre del hotel:</label>
+        <input type="text" id="name" formControlName="name">
+      </div>
+      <div class="col mb-2">
+        <label for="description">Descripción:</label>
+        <input type="text" id="description" formControlName="description">
+      </div>
+      <div class="col mb-2">
+        <label for="location">Ubicación:</label>
+        <input type="text" id="location" formControlName="location">
+      </div>
+      <div class="col mb-2">
+        <label for="stars">Estrellas:</label>
+        <input type="number" id="stars" formControlName="stars" min="1" max="5">
+      </div>
+      <div class="col mb-2">
+        <label for="image">Imagen (base 64):</label>
+        <input type="text" id="image" formControlName="image">
+      </div>
+      <div class="col mb-2">
+        <label for="show-hotel">Mostrar hotel:</label>
+        <select name="show-hotel" id="show-hotel" formControlName="showHotel">
+          <option value="true">Sí</option>
+          <option value="{{false}}">No</option>
+        </select>
+      </div>
+    </div>
+    <div class="room-form d-flex justify-content-between align-items-center mt-4">
+      <h2>Información de la(s) habitación(es)</h2>
+      <div class="add-btn btn btn-search" (click)="addRoom()">AGREGAR</div>
+    </div>
+    <div formArrayName="rooms">
+      <ng-container *ngFor="let room of rooms?.controls; let i = index">
+        <div [formGroupName]="i">
+          <h3 [ngClass]="rooms?.controls.length>0 ? 'd-block' : 'd-none'">Habitación {{i+1}}</h3>
+          <div class="room-inputs">
+            <div class="col mb-2">
+              <label for="name">Nombre de la habitación:</label>
+              <input type="text" id="name" formControlName="roomName">
+            </div>
+            <div class="col mb-2">
+              <label for="description">Descripción de la habitación:</label>
+              <input type="text" id="description" formControlName="roomDescription">
+            </div>
+            <div class="col mb-2">
+              <label for="price">Precio:</label>
+              <input type="text" id="price" formControlName="roomPrice">
+            </div>
+            <div class="col mb-2">
+              <label for="stars">Capacidad:</label>
+              <input type="number" id="stars" min="1" max="10" formControlName="roomGuests">
+            </div>
+            <div class="col mb-2">
+              <label for="type">Tipo:</label>
+              <input type="text" id="type" formControlName="roomType">
+            </div>
+            <div class="col mb-2">
+              <label for="dateAvailableStart">Fecha disponible (desde):</label>
+              <input type="date" id="dateAvailableStart" formControlName="roomDateAvailableStart">
+            </div>
+            <div class="col mb-2">
+              <label for="dateAvailableEnd">Fecha disponible (hasta):</label>
+              <input type="date" id="dateAvailableEnd" formControlName="roomDateAvailableEnd">
+            </div>
+            <div class="col mb-2">
+              <label for="image">Imagen (base 64):</label>
+              <input type="text" id="image" formControlName="roomImage">
+            </div>
+            <div class="col mb-2">
+              <label for="room-location">Ubicación:</label>
+              <input type="text" id="room-location" formControlName="roomLocation">
+            </div>
+            <div class="col mb-2">
+              <label for="show-room">Mostrar habitación:</label>
+              <select class="ms-3" name="show-room" id="show-room" formControlName="roomShow">
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+            <div class="col mb-2">
+              <label for="hotel">Hotel:</label>
+              <input type="text" id="hotel" formControlName="roomHotel"  value="{{ hotelForm?.get('name')?.value}}">
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="col-12 p-3 my-4 btn btn-search" [ngClass]="hotelForm?.invalid ? 'disabled' : ''" (click)="onSubmit()">Enviar</div>
+  </form>
+</div>

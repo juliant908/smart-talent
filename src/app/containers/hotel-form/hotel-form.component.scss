@@ -1,0 +1,39 @@
+@import '../../../assets/sass/variables.scss';
+@import '../../../assets/sass/mixin.scss';
+
+form {
+
+  .bold {
+    font-weight: 700;
+  }
+
+  input {
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  label {
+    font-size: 24px;
+  }
+  .calendar {
+    cursor: pointer;
+  }
+
+  .btn-search {
+    background-color: $violet;
+    color: white;
+    font-weight: 700;
+  }
+
+  .disabled {
+    pointer-events: none;
+    cursor: default;
+    background-color: $grey;
+    color: black;
+  }
+}
+.bg-p{
+  background-color: $periwinkle;
+}

@@ -1,0 +1,22 @@
+@import '../../../assets/sass/variables.scss';
+@import '../../../assets/sass/mixin.scss';
+
+.bg-grey {
+  background-color: $grey;
+}
+
+.hotel-image,
+.hotel-card {
+  max-width: 300px;
+}
+
+.btn-primary{
+  background-color: $violet !important;
+  border: none !important;
+}
+
+.hotel-row{
+  flex-basis: 25%;
+  max-width: 300px;
+  min-height: 500px;
+}

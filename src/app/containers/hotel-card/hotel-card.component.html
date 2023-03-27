@@ -1,0 +1,14 @@
+<div class="container-full d-flex flex-wrap px-4 my-2">
+  <ng-container *ngFor="let hotel of hotels, let i = index" class="d-flex">
+    <div *ngIf="hotel.show" class="hotel-row mx-4 d-flex justify-content-between flex-column mb-4 bg-grey">
+      <div class="hotel-card">
+        <img class="hotel-image" src="{{ hotel.image }}" alt="imagen del hotel">
+        <h3>{{ hotel.name }}</h3><span>{{ '⭐'.repeat(hotel.stars) }}</span>
+        <h4>{{ hotel.location }}</h4>
+        <p>{{ hotel.description }}</p>
+      </div>
+      <div class="btn btn-primary" routerLink="/hotels/{{hotel.name}}">Ver habitaciones</div>
+    </div>
+  </ng-container>
+</div>
+

@@ -1,0 +1,26 @@
+<nav class="navbar">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button class="navbar-toggler" data-toggle="open-navbar1">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a routerLink="/">
+        <h1>Hotelio</h1>
+      </a>
+    </div>
+
+    <div class="navbar-menu" id="open-navbar1">
+      <ul class="navbar-nav">
+        <li class=""><a routerLink="/">Inicio</a></li>
+        <li [ngClass]="isAdmin ? '' : 'd-none'" class="navbar-dropdown">
+          <a routerLink="/edit">
+            Crear Hoteles y Habitaciones <i class="fa fa-angle-down"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
